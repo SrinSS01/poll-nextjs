@@ -38,17 +38,32 @@ export default function handler(req: NextRequest) {
     }
     for (let i = 0; i < arr.length; i++) {
         const percentage = (pollsPercentage[i] * 100).toFixed(0);
-        arr[i] = <div key={ i } style={ pbStyles }>
-            <div style={ {
-                position: 'absolute',
-                width: `${percentage}%`,
-                height: '100%',
-                background: '#ffff00',
-                borderRadius: 12
-            } }></div>
-            <div style={{ marginLeft: 20, display: "flex" }}>{ pollsText[i] }</div>
-            <div style={{ marginRight: 20, display: 'flex' }}>{ percentage }%</div>
-        </div>;
+        arr[i] =
+            <div style={{ display: "flex" }}>
+                <div key={ i * i } style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 60,
+                    height: '100%',
+                    background: '#fff',
+                    marginRight: 9,
+                    borderRadius: '50%',
+                    color: '#000',
+                }}>{ i + 1 }</div>
+                <div key={ i } style={ pbStyles }>
+                    <div style={ {
+                        position: 'absolute',
+                        width: `${percentage}%`,
+                        height: '100%',
+                        background: '#ffff00',
+                        borderRadius: 12,
+                        boxShadow: '0px 0px 45px #C9C917FF'
+                    } }></div>
+                    <div style={{ marginLeft: 20, display: "flex" }}>{ pollsText[i] }</div>
+                    <div style={{ marginRight: 20, display: 'flex' }}>{ percentage }%</div>
+                </div>
+            </div>;
     }
     return new ImageResponse(
         (
