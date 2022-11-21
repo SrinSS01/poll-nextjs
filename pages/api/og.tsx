@@ -31,6 +31,7 @@ export default function handler(req: NextRequest) {
         pollsText[i] = s[1] ?? 'Text'
         sum += polls[i] = Number(s[0]);
     }
+    sum = sum === 0? 1: sum;
     const arr = new Array<JSX.Element>(length);
     const pollsPercentage = new Array<number>(length)
     for (let i = 0; i < length; i++) {
