@@ -9,13 +9,13 @@ export const config = {
 const pbStyles: CSSProperties = {
     background: '#FFF',
     borderRadius: 12,
-    width: '100%',
-    height: 70,
+    width: '90%',
+    height: 60,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     color: '#000000',
-    fontSize: 30,
+    fontSize: 20,
 }
 
 export default function handler(req: NextRequest) {
@@ -57,14 +57,20 @@ export default function handler(req: NextRequest) {
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'flex-start',
+                alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '50px 40px 50px 40px',
-                fontSize: 50,
                 background: '#000',
                 color: '#fff',
             }}>
-                <div style={{ display: "flex" }}>{ topic }</div>
+                <div style={{
+                    inlineSize: 'min-content',
+                    wordBreak: 'break-all',
+                    overflowWrap: 'break-word',
+                    display: "flex",
+                    width: '100%',
+                    fontSize: 35
+                }}>{ topic }</div>
                 { arr }
             </div>
         ),
